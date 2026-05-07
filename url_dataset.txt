@@ -1,1 +1,2 @@
 https://www.kaggle.com/datasets/fayez7/ifood-marketing-campaigns/data
+https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign?select=marketing_campaign.xlsx
