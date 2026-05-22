@@ -1,3 +1,5 @@
+![folder](img/folder.png)
+
 # Ifood Insights
 
 Projeto de analise exploratoria de dados com base no dataset **iFood Marketing Campaigns**. O objetivo e entender o perfil dos clientes, seus padroes de consumo, distribuicao de renda, comportamento de compra e segmentos com maior potencial de valor.
