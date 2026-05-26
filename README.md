@@ -12,11 +12,15 @@ Principais frentes analisadas:
 
 - Perfil dos clientes por idade, escolaridade e estado civil.
 - Distribuicao de renda e gasto total.
-- Identificacao e tratamento de outliers em `MntTotal`.
+- Identificacao de outliers em `MntTotal` e `Income`.
+- Tratamento de outliers em `MntTotal`.
+- Criacao das variaveis `IncomeMonth`, `AgeRange` e `MntTotal_>_1k`.
 - Analise de produtos consumidos.
+- Analise de composicao familiar por `Teenhome` e `Kidhome`.
 - Segmentacao de clientes por cluster.
 - Correlacao entre variaveis numericas.
 - Comparacao entre `Income` e `MntTotal`.
+- Previsao simples de `MntTotal` com base na media por faixa etaria.
 
 ## Analises e conclusoes
 
@@ -32,6 +36,10 @@ Principais frentes analisadas:
 
 **Conclusao:** A coluna `MntTotal` possui clientes com gasto muito acima da maior parte da base. Esses casos podem representar clientes premium, mas tambem podem distorcer medias e modelos, por isso foram analisados separadamente antes do tratamento.
 
+### Outliers em Income
+
+**Conclusao:** A coluna `Income` tambem foi avaliada com a regra de IQR. Essa etapa ajuda a identificar rendas muito afastadas do comportamento geral da base e reduz o risco de conclusoes enviesadas em analises que cruzam renda com consumo.
+
 ### Escolaridade dos clientes
 
 ![Distribuicao por escolaridade](img/education.png)
@@ -43,6 +51,12 @@ Principais frentes analisadas:
 ![Distribuicao por faixa etaria](img/age_range.png)
 
 **Conclusao:** A base se concentra principalmente nas faixas adultas, especialmente entre clientes de 31 a 50 anos e 51 a 80 anos. Isso indica que o consumo analisado e mais forte em publicos adultos e maduros.
+
+### Teenhome e Kidhome por faixa etaria
+
+![Teenhome e Kidhome por faixa etaria](img/teen_kidhome_agerange.png)
+
+**Conclusao:** A soma de `Teenhome` e `Kidhome` por `AgeRange` mostra como a presenca de adolescentes e criancas varia entre as faixas etarias. Essa leitura complementa o perfil demografico e pode apoiar campanhas mais aderentes a diferentes composicoes familiares.
 
 ### Estado civil
 
@@ -109,6 +123,12 @@ Principais frentes analisadas:
 ![Dispersao maior cluster](img/disp_high_cluster.png)
 
 **Conclusao:** No maior cluster, a relacao entre `Income` e `MntTotal` fica mais especifica para clientes de alto valor. Essa analise ajuda a identificar perfis que combinam alta renda com alto consumo.
+
+### Previsao simples de MntTotal por faixa etaria
+
+![Previsao de MntTotal por faixa etaria](img/mnttotal_pred_agerange.png)
+
+**Conclusao:** Foi criada uma previsao simples usando a media de `MntTotal` por `AgeRange` como valor estimado. O resultado indica maior media prevista para clientes de 19 a 30 anos, seguida pelas faixas de 51 a 80 e 31 a 50 anos. O RMSE de 566.84 mostra que essa abordagem funciona como linha de base inicial, mas ainda pode ser aprimorada com mais variaveis e modelos mais robustos.
 
 ## Tecnologias utilizadas
 
